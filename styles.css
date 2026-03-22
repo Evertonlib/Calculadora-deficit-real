@@ -1,0 +1,291 @@
+:root {
+  --bg-top: #f4efe6;
+  --bg-bottom: #dfe8dd;
+  --card: rgba(255, 252, 246, 0.92);
+  --card-strong: #fffdf8;
+  --text: #1d2a24;
+  --muted: #5c6d64;
+  --accent: #345c4f;
+  --accent-soft: #d4e2c4;
+  --success: #1f6b47;
+  --danger: #a23a2c;
+  --border: rgba(29, 42, 36, 0.12);
+  --shadow: 0 24px 60px rgba(35, 49, 42, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.75), transparent 35%),
+    linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(135deg, transparent 0 58%, rgba(52, 92, 79, 0.05) 58% 65%, transparent 65%),
+    linear-gradient(25deg, transparent 0 48%, rgba(255, 255, 255, 0.45) 48% 52%, transparent 52%);
+  pointer-events: none;
+}
+
+.app-shell {
+  width: min(1080px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 40px 0 56px;
+}
+
+.hero-card,
+.calculator-card,
+.result-card,
+.metric {
+  backdrop-filter: blur(12px);
+}
+
+.hero-card,
+.calculator-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+}
+
+.hero-card {
+  padding: 32px;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  line-height: 1.04;
+  max-width: 12ch;
+}
+
+.subtitle {
+  margin: 16px 0 0;
+  max-width: 62ch;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.calculator-card {
+  padding: 28px;
+  display: grid;
+  gap: 24px;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.field,
+.checkbox-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field span,
+.checkbox-field span {
+  font-weight: 700;
+  color: var(--text);
+}
+
+input,
+select,
+.primary-button {
+  font: inherit;
+}
+
+input,
+select {
+  width: 100%;
+  border: 1px solid rgba(52, 92, 79, 0.18);
+  border-radius: 16px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.86);
+  color: var(--text);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(52, 92, 79, 0.14);
+  transform: translateY(-1px);
+}
+
+.checkbox-field {
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  background: rgba(212, 226, 196, 0.34);
+  border: 1px solid rgba(52, 92, 79, 0.14);
+  border-radius: 18px;
+  padding: 14px 16px;
+}
+
+.checkbox-field input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--accent);
+}
+
+.primary-button {
+  border: 0;
+  border-radius: 18px;
+  padding: 16px 22px;
+  background:
+    linear-gradient(135deg, #223e35, #446f60);
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.primary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(34, 62, 53, 0.2);
+}
+
+.primary-button:active {
+  transform: translateY(0);
+}
+
+.result-card {
+  background: var(--card-strong);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 24px;
+}
+
+.result-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.result-header p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.metric {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(244, 239, 230, 0.95));
+  border: 1px solid rgba(52, 92, 79, 0.14);
+  border-radius: 18px;
+  padding: 18px;
+}
+
+.metric-label {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.metric-value {
+  display: block;
+  font-size: clamp(1.2rem, 2vw, 1.7rem);
+}
+
+.metric-value.status-ok {
+  color: var(--success);
+}
+
+.metric-value.status-alert {
+  color: var(--danger);
+}
+
+.applied-adjustments {
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(212, 226, 196, 0.28);
+  border: 1px solid rgba(52, 92, 79, 0.14);
+}
+
+.applied-adjustments h3 {
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+.applied-adjustments ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    width: min(100% - 20px, 720px);
+    padding: 20px 0 28px;
+  }
+
+  .hero-card,
+  .calculator-card,
+  .result-card {
+    border-radius: 22px;
+  }
+
+  .hero-card,
+  .calculator-card,
+  .result-card,
+  .metric {
+    backdrop-filter: none;
+  }
+
+  .field-grid,
+  .result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-card,
+  .calculator-card,
+  .result-card {
+    padding: 20px;
+  }
+
+  .checkbox-field {
+    align-items: flex-start;
+  }
+}

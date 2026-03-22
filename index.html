@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Déficit Real</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero-card">
+      <p class="eyebrow">Reajuste de projetos</p>
+      <h1>Calculadora de déficit real</h1>
+      <p class="subtitle">
+        Descubra se o projeto continua saudável ou qual é o déficit real após os reajustes
+        de fábrica ocorridos depois da venda.
+      </p>
+    </section>
+
+    <section class="calculator-card">
+      <form id="calculator-form" novalidate>
+        <div class="field-grid">
+          <label class="field">
+            <span>Data da venda</span>
+            <input type="date" id="saleDate" name="saleDate" required>
+          </label>
+
+          <label class="field">
+            <span>Valor do déficit (R$)</span>
+            <input
+              type="number"
+              id="deficitValue"
+              name="deficitValue"
+              min="0"
+              step="0.01"
+              placeholder="0,00"
+              required
+            >
+          </label>
+
+          <label class="field">
+            <span>Percentual do déficit (%)</span>
+            <input
+              type="number"
+              id="deficitPercent"
+              name="deficitPercent"
+              min="0"
+              step="0.01"
+              placeholder="0,00"
+              required
+            >
+          </label>
+
+          <label class="field">
+            <span>Material do projeto</span>
+            <select id="material" name="material" required>
+              <option value="MDP">MDP</option>
+              <option value="MDF">MDF</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="checkbox-field">
+          <input type="checkbox" id="hasBrilhart" name="hasBrilhart">
+          <span>Projeto possui linha Brilhart</span>
+        </label>
+
+        <button type="submit" class="primary-button">CALCULAR</button>
+      </form>
+
+      <section class="result-card" id="resultCard" aria-live="polite">
+        <div class="result-header">
+          <h2>Resultado</h2>
+          <p id="resultMessage">Preencha os campos para calcular o impacto dos reajustes.</p>
+        </div>
+
+        <div class="result-grid">
+          <article class="metric">
+            <span class="metric-label">Reajuste acumulado</span>
+            <strong class="metric-value" id="totalAdjustment">-</strong>
+          </article>
+
+          <article class="metric">
+            <span class="metric-label">Status do projeto</span>
+            <strong class="metric-value" id="projectStatus">-</strong>
+          </article>
+
+          <article class="metric">
+            <span class="metric-label">Percentual real</span>
+            <strong class="metric-value" id="realPercent">-</strong>
+          </article>
+
+          <article class="metric">
+            <span class="metric-label">Valor real</span>
+            <strong class="metric-value" id="realValue">-</strong>
+          </article>
+        </div>
+
+        <div class="applied-adjustments">
+          <h3>Reajustes aplicados</h3>
+          <ul id="adjustmentList">
+            <li>Nenhum cálculo realizado ainda.</li>
+          </ul>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

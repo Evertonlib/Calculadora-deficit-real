@@ -17,7 +17,8 @@ const ADJUSTMENTS = [
   { date: "2025-07-30", percent: 5.9, materials: ["MDP"], requiresBrilhart: false },
   { date: "2025-07-30", percent: 5.9, materials: ["MDF"], requiresBrilhart: false },
   { date: "2026-03-04", percent: 5.9, materials: ["MDP"], requiresBrilhart: false },
-  { date: "2026-03-04", percent: 2.9, materials: ["MDF"], requiresBrilhart: false }
+  { date: "2026-03-04", percent: 2.9, materials: ["MDF"], requiresBrilhart: false },
+  { date: "2026-05-18", percent: 5, materials: ["MDP", "MDF"], requiresBrilhart: true }
 ];
 
 const currencyFormatter = new Intl.NumberFormat("pt-BR", {
